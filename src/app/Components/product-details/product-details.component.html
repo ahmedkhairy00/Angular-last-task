@@ -1,0 +1,25 @@
+<div class="container py-4">
+  <button class="btn btn-secondary mb-3 d-flex justify-content-between align-items-center" (click) = "backToProducts()">&larr; Back to Products</button>
+  <div class="row">
+    <div class="col-md-6 d-flex align-items-center justify-content-center p-3">
+      <img
+        [src]="selectedProduct?.image || 'https://via.placeholder.com/600x400'"
+        class="img-fluid rounded shadow"
+        style="max-height: 400px; object-fit: contain;"
+        alt="Product image"
+      />
+    </div>
+    <div class="col-md-6 p-4">
+      <h3>{{ selectedProduct?.title || 'Product Name' }}</h3>
+      <h5 class="text-primary">
+        {{ selectedProduct?.price || 0 | currency }}
+      </h5>
+      <p class="text-muted">
+        {{ selectedProduct?.title || 'Sample description here...' }}
+      </p>
+      <button type="button" class="btn btn-success me-2" (click)="onAddToCart()">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>

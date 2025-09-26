@@ -1,0 +1,108 @@
+<section class="vh-100">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      
+      <!-- Left Image -->
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          class="img-fluid" alt="Sample image">
+      </div>
+
+      <!-- Right Form -->
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+
+          <div class="divider d-flex align-items-center my-4">
+            <p class="text-center fw-bold mx-3 mb-0">Login</p>
+          </div>
+
+          <!-- Email -->
+          <div class="form-outline mb-4">
+            <input type="email"
+              formControlName="email"
+              class="form-control form-control-lg"
+              placeholder="Enter a valid email address"
+              [ngClass]="{
+                'is-invalid': formLogin.get('email')?.invalid && formLogin.get('email')?.touched,
+                'is-valid': formLogin.get('email')?.valid && formLogin.get('email')?.touched
+              }" />
+
+            <div class="my-1">
+              @if(formLogin.get('email')?.invalid && formLogin.get('email')?.touched) {
+                <small class="text-danger">Enter a valid email</small>
+              }
+              @if(formLogin.get('email')?.valid && formLogin.get('email')?.touched) {
+                <small class="text-success">Looks good!</small>
+              }
+            </div>
+
+            <label class="form-label">Email address</label>
+          </div>
+
+          <!-- Password -->
+          <div class="form-outline mb-3">
+            <input type="password"
+              formControlName="password"
+              class="form-control form-control-lg"
+              placeholder="Enter password"
+              [ngClass]="{
+                'is-invalid': formLogin.get('password')?.invalid && formLogin.get('password')?.touched,
+                'is-valid': formLogin.get('password')?.valid && formLogin.get('password')?.touched
+              }" />
+
+            <div class="my-1">
+              @if(formLogin.get('password')?.invalid && formLogin.get('password')?.touched) {
+                <small class="text-danger">Password must be at least 6 characters</small>
+              }
+              @if(formLogin.get('password')?.valid && formLogin.get('password')?.touched) {
+                <small class="text-success">Password is valid</small>
+              }
+            </div>
+
+            <label class="form-label">Password</label>
+          </div>
+
+          <!-- Buttons -->
+          <div class="text-center text-lg-start my-4 pt-2">
+            <button type="submit" class="btn btn-primary btn-lg me-2"
+              [disabled]="formLogin.invalid"
+              style="padding-left: 2.5rem; padding-right: 2.5rem;">
+              Login
+            </button>
+
+            <button type="button" class="btn btn-warning btn-lg"
+              (click)="onReset()"
+              style="padding-left: 2rem; padding-right: 2rem;">
+              Reset
+            </button>
+          </div>
+
+        </form>
+        
+        <div class="back-to-regiester d-flex justify-content-evenly align-items-center m-3">
+            <span class="text-danger"> Dont have account</span>
+            <button routerLink="/register" class="btn btn-success fs-2">Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div
+    class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+    <div class="text-white mb-3 mb-md-0">
+      Copyright © 2025. All rights reserved.
+    </div>
+    <div>
+      <a href="#!" class="text-white me-4"><i class="fab fa-facebook-f"></i></a>
+      <a href="#!" class="text-white me-4"><i class="fab fa-twitter"></i></a>
+      <a href="#!" class="text-white me-4"><i class="fab fa-google"></i></a>
+      <a href="#!" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</section>
+<router-outlet></router-outlet>
+<app-card-login [user] = "userLoginData">
+
+  
+</app-card-login>

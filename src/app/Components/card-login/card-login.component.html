@@ -1,0 +1,10 @@
+<div class="card m-3 p-3 shadow">
+  <h3 class="text-primary">User Login Data</h3>
+
+  @if(user) {
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Password:</strong> {{ user.password }}</p>
+  } @else {
+    <p class="text-muted">No login data yet.</p>
+  }
+</div>

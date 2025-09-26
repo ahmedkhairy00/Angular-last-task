@@ -1,0 +1,16 @@
+<div class="container-fluid">
+<app-navbar (toggleCart)="toggleCart()"></app-navbar>
+<div class="container">
+  <button class="btn btn-info my-3" (click)="toggleClock()">
+    {{ showClock ? 'Hide Clock' : 'Show Clock' }}
+  </button>
+  @if (showClock) {
+    <app-clock></app-clock>
+  }
+  <router-outlet (activate)="onRouteActivate($event)"></router-outlet>
+</div>
+@if (showCart) {
+  <shopping-card-component [items]="cartItems" [totalPrice]="total" (close)="toggleCart()"></shopping-card-component>
+}
+<app-footer></app-footer>
+</div>
