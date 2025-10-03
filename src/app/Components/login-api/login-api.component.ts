@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../Services/auth.service';
-import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { FormsModule } from '@angular/forms';
 
 
 type User = {
